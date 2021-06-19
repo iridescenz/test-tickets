@@ -1,6 +1,6 @@
 import React from 'react'
 
-function resultsPage() {
+function Currency() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function resultsPage() {
   )
 }
 
-export default resultsPage
+export default Currency

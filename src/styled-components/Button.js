@@ -1,6 +1,6 @@
 import React from 'react'
 
-function resultsPage() {
+function Button() {
   return (
     <div>
       
@@ -8,4 +8,5 @@ function resultsPage() {
   )
 }
 
-export default resultsPage
+export default Button
+
