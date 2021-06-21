@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Checkbox() {
+const Currency = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Checkbox() {
   )
 }
 
-export default Checkbox
+export default Currency

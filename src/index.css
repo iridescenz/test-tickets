@@ -1,0 +1,40 @@
+
+:root {
+  --grey: rgb(216, 219, 219)
+}
+.right {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket {
+  display:flex;
+  flex-direction: row;
+}
+.line {
+  width: 80px;
+  border-top: 0.5px solid var(--grey);
+  height: 10px;
+  margin-top: 5px;
+ float:left;
+}
+.stops {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.plane-line {
+text-align: center;
+}
+
+.plane-icon {
+  color: #9B99AE!important;
+  position: relative;
+  float: right;
+}

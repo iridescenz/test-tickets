@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Options() {
+const Options = () => {
   return (
     <div>
       
@@ -9,3 +9,4 @@ function Options() {
 }
 
 export default Options
+
