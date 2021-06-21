@@ -36,6 +36,7 @@ function Ticket({
         <div className='arrival'>
           <h2>{arrivalTime}</h2>
           <div>{`${destinationName},${destination}`}</div>
+          <div className='date'>{arrivalDate}</div>
         </div>
       </div>
     </div>
