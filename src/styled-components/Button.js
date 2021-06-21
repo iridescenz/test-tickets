@@ -1,10 +1,8 @@
 import React from 'react'
 
-function Button() {
+function Button({text}) {
   return (
-    <div>
-      
-    </div>
+<button>{text}</button>
   )
 }
 
