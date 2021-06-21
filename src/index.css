@@ -19,8 +19,8 @@
 .line {
   width: 80px;
   border-top: 0.5px solid var(--grey);
-  height: 10px;
-  margin-top: 5px;
+  height: 14px;
+  margin-top: 7px;
  float:left;
 }
 .stops {
@@ -34,7 +34,7 @@ text-align: center;
 }
 
 .plane-icon {
-  color: #9B99AE!important;
-  position: relative;
+  color: var(--grey)!important;
   float: right;
+  font-size: 14px;
 }
