@@ -7,6 +7,8 @@ html {
 .right {
   display: flex;
   flex-direction: row;
+  margin: 0 50px;
+  width: 300px;
 }
 
 .left {
@@ -19,6 +21,13 @@ html {
 .ticket {
   display: flex;
   flex-direction: row;
+  border: none!important;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  width: calc(180px + 300px + 100px);
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); 
+-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); 
+box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 .line {
   width: 80px;
@@ -44,7 +53,16 @@ html {
   float: right;
   font-size: 14px;
 }
+.results {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(243, 247,250);
+}
 
+ .ticket:nth-of-type(2n){
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .buy {
   background-color: rgb(255, 129, 0);
   height: 45px;
@@ -71,4 +89,21 @@ img {
 }
 .buy::after {
   content: '₽';
+}
+
+.date {
+  font-size: 10px;
+  color: rgb(177, 182, 182);
+}
+.airport-name {
+  font-size: 11px;
+  color: rgb(96, 99, 99);
+  line-height: 16px;
+}
+
+.depature > h2, .arrival > h2 {
+  font-size: 24px;
+  color: rgb(96, 99, 99);
+  font-weight: 350;
+  margin-bottom: 5px;
 }

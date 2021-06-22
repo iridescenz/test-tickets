@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from './Button'
 import { IoIosAirplane } from 'react-icons/io'
+import moment from 'moment'
+import 'moment/locale/ru'
 
 function Ticket({
   origin,
@@ -15,20 +17,28 @@ function Ticket({
   price,
   stops,
 }) {
+  const dateFormatter = (date) => {
+    moment.locale('ru')
+    let formattedDate = moment(date).format('ll')
+    formattedDate = formattedDate.replace(/\./gi, '').slice(0, -2)
+    const day = moment(date).format('dd')
+    return `${formattedDate}, ${day[0].toUpperCase()}${day[1]}`
+  }
+
+  const priceFormatter = (price) =>
+    price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+
   return (
     <div className='ticket' style={{ border: '1px solid grey' }}>
       <div className='left'>
-        <img
-          src={`./logos/${carrier}.png`}
-          alt={carrier}
-        />
-        <Button text='Купить' text2= {`за ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}`} />
+        <img src={`./logos/${carrier}.png`} alt={carrier} />
+        <Button text='Купить' text2={`за ${priceFormatter(price)}`} />
       </div>
       <div className='right'>
         <div className='depature'>
           <h2>{depatureTime}</h2>
-          <div>{`${origin}, ${originName}`}</div>
-          <div className='date'>{depatureDate}</div>
+          <div className='airport-name'>{`${origin}, ${originName}`}</div>
+          <div className='date'>{dateFormatter(depatureDate)}</div>
         </div>
         <div className='stops'>
           <div>
@@ -39,7 +49,6 @@ function Ticket({
               : 'без пересадок'}
           </div>
           <div className='plane-line'>
-            {' '}
             <div className='line'></div>
             <div className='plane-icon'>
               <IoIosAirplane />
@@ -48,8 +57,8 @@ function Ticket({
         </div>
         <div className='arrival'>
           <h2>{arrivalTime}</h2>
-          <div>{`${destinationName},${destination}`}</div>
-          <div className='date'>{arrivalDate}</div>
+          <div className='airport-name'>{`${destinationName},${destination}`}</div>
+          <div className='date'>{dateFormatter(arrivalDate)}</div>
         </div>
       </div>
     </div>
