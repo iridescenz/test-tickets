@@ -1,6 +1,8 @@
-
 :root {
-  --grey: rgb(216, 219, 219)
+  --grey: rgb(216, 219, 219);
+}
+html {
+  font-family: 'Roboto', sans-serif;
 }
 .right {
   display: flex;
@@ -10,10 +12,12 @@
 .left {
   display: flex;
   flex-direction: column;
+  width: 200px;
+  border-right: 0.5px solid var(--grey);
 }
 
 .ticket {
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 .line {
@@ -21,20 +25,50 @@
   border-top: 0.5px solid var(--grey);
   height: 14px;
   margin-top: 7px;
- float:left;
+  float: left;
 }
 .stops {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
   font-size: 10px;
+  color: rgb(177, 182, 182);
 }
 .plane-line {
-text-align: center;
+  text-align: center;
+  width: 100px;
 }
 
 .plane-icon {
-  color: var(--grey)!important;
+  color: var(--grey) !important;
   float: right;
   font-size: 14px;
+}
+
+.buy {
+  background-color: rgb(255, 129, 0);
+  height: 45px;
+  width: 125px;
+  border: none;
+  margin: 10px auto;
+  text-align: center;
+  font-style: normal;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #f4f7ff;
+  outline: none;
+  cursor: pointer;
+  font-weight: 400;
+  font-family: inherit;
+}
+img {
+  height: 35px;
+  width: 100px;
+  margin: 10px auto;
+  margin-bottom: 0;
+}
+.buy::after {
+  content: '₽';
 }
