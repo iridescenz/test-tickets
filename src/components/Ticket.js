@@ -27,8 +27,16 @@ function Ticket({
 
   const priceFormatter = (price) =>
     price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-  const dep = dateFormatter(depatureDate)
-  const arr = dateFormatter(arrivalDate)
+
+  const validDateFormatter = (date) => {
+    //format date to fix safari bug
+   const data = date.split('.')
+   const [day, month, year] = data;
+   return `20${year}-${month}-${day}`
+  }
+  const dep = dateFormatter(validDateFormatter(depatureDate))
+  const arr = dateFormatter(validDateFormatter(arrivalDate))
+
   return (
     <div className='ticket' style={{ border: '1px solid grey' }}>
       <div className='left'>
