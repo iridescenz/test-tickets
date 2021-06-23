@@ -1,13 +1,18 @@
 :root {
   --grey: rgb(216, 219, 219);
 }
+* {
+  margin: 0;
+  padding: 0;
+}
 html {
   font-family: 'Roboto', sans-serif;
+  font-style: normal;
 }
 .right {
   display: flex;
   flex-direction: row;
-  margin: 0 50px;
+  padding: 0 10px;
   width: 300px;
 }
 
@@ -24,7 +29,7 @@ html {
   border: none!important;
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
-  width: calc(180px + 300px + 100px);
+  width: calc(180px + 200px + 100px);
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); 
 -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); 
 box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -60,7 +65,8 @@ box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 .results {
   display: flex;
   flex-direction: column;
-  background-color: rgb(243, 247,250);
+  width: 600px;
+  margin-left: 20px;
 }
 
  .ticket:nth-of-type(2n){
@@ -118,4 +124,31 @@ img {
 }
 .arrival {
   margin-left: 100px;
+}
+
+.options {
+  width: 400px;
+}
+
+.container {
+  display: flex;  
+  padding-top: 25px;
+}
+
+.page-container {
+  background-color: lightcoral;
+  background-color: rgb(243, 247,250);
+  margin: 0 auto;
+  width: 920px;
+}
+
+.plane  > img {
+  height: auto;
+  border-radius: 50px;
+  width: 50px;
+}
+
+.plane {
+margin-left: 50%;
+padding-top: 25px;
 }

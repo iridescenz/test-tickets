@@ -20,14 +20,15 @@ function Ticket({
   const dateFormatter = (date) => {
     moment.locale('ru')
     let formattedDate = moment(date).format('ll')
-    formattedDate = formattedDate.replace(/\./gi, '').slice(0, -2)
+    formattedDate = formattedDate.replace(/\./gi, '')
     const day = moment(date).format('dd')
     return `${formattedDate}, ${day[0].toUpperCase()}${day[1]}`
   }
 
   const priceFormatter = (price) =>
     price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-
+  const dep = dateFormatter(depatureDate)
+  const arr = dateFormatter(arrivalDate)
   return (
     <div className='ticket' style={{ border: '1px solid grey' }}>
       <div className='left'>
@@ -38,7 +39,7 @@ function Ticket({
         <div className='depature'>
           <h2>{depatureTime}</h2>
           <div className='airport-name'>{`${origin}, ${originName}`}</div>
-          <div className='date'>{dateFormatter(depatureDate)}</div>
+          <div className='date'>{dep}</div>
         </div>
         <div className='stops'>
           <div>
@@ -58,7 +59,7 @@ function Ticket({
         <div className='arrival'>
           <h2>{arrivalTime}</h2>
           <div className='airport-name'>{`${destinationName},${destination}`}</div>
-          <div className='date'>{dateFormatter(arrivalDate)}</div>
+          <div className='date'>{arr}</div>
         </div>
       </div>
     </div>
