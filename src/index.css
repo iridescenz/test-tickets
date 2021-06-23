@@ -1,8 +1,4 @@
-:root {
-  --grey: rgb(216, 219, 219);
-  --blue: rgb(17, 148, 246);
-  --light-blue: rgb(242, 252, 255)
-}
+
 *,
 *:before,
 *:after {
@@ -48,7 +44,7 @@ html {
   width: 86px;
   border-top-style: solid;
   border-top-width: 0.5px;
-  border-top-color: var(--grey);
+  border-top-color: rgb(216, 219, 219);
   height: 14px;
   margin-top: 7px;
   float: left;
@@ -69,7 +65,7 @@ html {
 }
 
 .plane-icon {
-  color: var(--grey) !important;
+  color: rgb(216, 219, 219)!important;
   float: right;
   font-size: 14px;
   margin-top: -5px;
@@ -188,7 +184,7 @@ input[type='radio'] {
   visibility:hidden;
 }
 .button-group > label{
-  background-color: lightblue;
+  background-color: rgb(242, 252, 255);
 }
 
 input[type="checkbox"]:checked, 
@@ -227,7 +223,7 @@ width: 18px;
 height: 18px;
 border: 1px solid #dddddd;
 background-color: #ffffff;
-border: 1px solid var(--blue);
+border: 1px solid rgb(17, 148, 246);
 }
 
 
@@ -253,8 +249,8 @@ input[type="checkbox"]:not(:checked) + label:after {
     top: 4px;
     width: 9px;
     height: 6px;
-    border-left: 2px solid var(--blue);
-    border-bottom: 2px solid var(--blue);
+    border-left: 2px solid rgb(17, 148, 246);
+    border-bottom: 2px solid rgb(17, 148, 246);
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
