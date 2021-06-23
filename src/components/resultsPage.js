@@ -1,9 +1,11 @@
 import React from 'react'
 import data from '../tickets.json'
 import Ticket from './Ticket'
+import store from '../store'
+
 
 function ResultsPage() {
-  const results = data.tickets.map((el) => {
+  const results = store.getState().showData.tickets.map((el) => {
     return (
       <Ticket
       key={`${el.origin_name}, ${el.departure_time}, ${el.carrier}`}
