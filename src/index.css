@@ -1,6 +1,7 @@
 :root {
   --grey: rgb(216, 219, 219);
   --blue: rgb(17, 148, 246);
+  --light-blue: rgb(242, 252, 255)
 }
 *,
 *:before,
@@ -71,6 +72,7 @@ html {
   color: var(--grey) !important;
   float: right;
   font-size: 14px;
+  margin-top: -5px;
 }
 .results {
   display: flex;
@@ -175,20 +177,18 @@ img {
   padding-top: 25px;
 }
 
-.btn-primary:checked{
-  background-color: var(--blue)!important;
-}
 .btn-primary {
   background-color: rgb(242, 252, 255)!important;
+  color: rgb(17, 148, 246)!important;
+  text-transform: uppercase;
+  font-weight: 600!important;
 }
 
 input[type='radio'] {
   visibility:hidden;
 }
 .button-group > label{
-  margin-left: 10px;
   background-color: lightblue;
-  text-align: right;
 }
 
 input[type="checkbox"]:checked, 
@@ -270,20 +270,23 @@ input[type="checkbox"]:checked + label:after {
     opacity: 1;
 }
 
+
 .stops-value {
   text-align: left;
-  margin: 0 auto;
+  margin-left: 20px;
   width: 140px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 label {
  cursor: pointer;
+ color: rgb(79, 79, 79);
+ font-size: 12px;
 }
 
 .stops-value > div:nth-of-type(2n) {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: -7px;
+  margin-bottom: -7px;
 }
 
 .page-header {
@@ -293,5 +296,19 @@ label {
   margin-top: 10px;
   margin-bottom: 10px;
   font-weight: 500;
-  
 }
+
+.currency{
+  text-align: left;
+  margin-left: 20px;
+  width: 140px;
+  margin-top: 10px;
+}
+.btn-primary:focus {
+background-color: rgb(17, 148, 246)!important;
+color: white!important;
+outline:none!important;
+}
+
+
+

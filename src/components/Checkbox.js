@@ -8,6 +8,9 @@ const Checkbox = () => {
         <input type='checkbox' id='cb1' /> <label for='cb1'> Все</label>
       </div>
       <div>
+        <input type='checkbox' id='cb0' /> <label for='cb0'> Без пересадок</label>
+      </div>
+      <div>
         <input type='checkbox' id='cb2' /> <label for='cb2'>1 пересадка</label>
       </div>
       <div>

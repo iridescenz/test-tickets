@@ -1,24 +1,19 @@
 import React from 'react'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Currency = () => {
   return (
-    <form  className="button-group">
- <label>
-                <input type='radio' name='radio' value='rub' />
-                
- rub
-
-              </label>
-              <label>
-                <input type='radio' name='radio' value='usd' />
-                usd
-              </label>
-              <label>
-                <input type='radio' name='radio' value='eur' />
-                eur
-              </label>
-  </form>
+    <div className='currency'>
+       <h3 className='page-header'>Валюта</h3>
+    <ButtonGroup size="sm">
+    <Button>rub</Button>
+    <Button>usd</Button>
+    <Button>eur</Button>
+  </ButtonGroup>
+    </div>
   )
 }
 
