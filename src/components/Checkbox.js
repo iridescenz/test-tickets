@@ -10,8 +10,10 @@ const Checkbox = () => {
         <input
           type='checkbox'
           id='cb1'
-          onChange={() => console.log(store.getState().filter)}
-          onClick={() => store.dispatch({ type: 'SHOW_ALL' })}
+          onClick={() =>
+            store.dispatch({ type: 'FILTER', payload: [0, 1, 2, 3] }) &&
+            store.dispatch({ type: 'FILTER_BY_STOPS', payload: [0, 1, 2, 3] })
+          }
         />
         <label htmlFor='cb1'> Все</label>
       </div>
@@ -19,7 +21,10 @@ const Checkbox = () => {
         <input
           type='checkbox'
           id='cb0'
-          onClick={(e) => store.dispatch({ type: 'NO_STOPS' })}
+          onClick={() =>
+            store.dispatch({ type: 'FILTER', payload: 0 }) &&
+            store.dispatch({ type: 'FILTER_BY_STOPS', payload: 0 })
+          }
         />
         <label htmlFor='cb0'> Без пересадок</label>
       </div>

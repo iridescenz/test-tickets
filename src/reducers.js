@@ -1,17 +1,5 @@
 function reducers(state, action) {
   switch (action.type) {
-    case 'SHOW_ALL':
-      return {
-        ...state,
-        filter: [],
-        showData: state.data,
-      }
-    case 'NO_STOPS':
-      return {
-        ...state,
-        filter: [],
-        showData: state.data.filter((el) => el.stops === 0),
-      }
     case 'SET_CURRENCY_EURO':
       return {
         ...state,

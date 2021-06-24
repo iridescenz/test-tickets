@@ -7,7 +7,8 @@ function ResultsPage() {
   const currentData = store.getState().showData
   const dollarRate = 72.3
   const euroRate = 86.3
-  const results = currentData
+  const res = currentData.length === 0 ? store.getState().data : currentData
+  const results = res
     .sort((a, b) => a.price - b.price)
     .map((el) => {
       const currency = store.getState().currency
