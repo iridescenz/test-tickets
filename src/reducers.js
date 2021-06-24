@@ -1,22 +1,17 @@
 function reducers(state, action) {
   switch (action.type) {
-    case 'FILTER_BY_STOPS':
-      return {
-        ...state,
-        showData: state.data.filter((el) => state.filter.includes(+el.stops)),
-      };
     case 'SHOW_ALL':
       return {
         ...state,
         filter: [],
         showData: state.data,
-      };
-      case 'NO_STOPS':
-        return {
-          ...state,
-          filter: [0],
-          showData: state.data.filter(el => el.stops === 0),
-        }
+      }
+    case 'NO_STOPS':
+      return {
+        ...state,
+        filter: [],
+        showData: state.data.filter((el) => el.stops === 0),
+      }
     case 'SET_CURRENCY_EURO':
       return {
         ...state,
@@ -38,6 +33,11 @@ function reducers(state, action) {
         filter: state.filter.includes(action.payload)
           ? state.filter.filter((el) => el !== action.payload)
           : [...state.filter, action.payload],
+      }
+    case 'FILTER_BY_STOPS':
+      return {
+        ...state,
+        showData: state.data.filter((el) => state.filter.includes(+el.stops)),
       }
     default:
       return state

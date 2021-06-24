@@ -27,8 +27,8 @@ function ResultsPage() {
             currency === 'rub'
               ? `${el.price} ₽`
               : currency === 'usd'
-              ? `${Math.ceil((el.price / dollarRate))} $`
-              : `${Math.ceil((el.price / euroRate))} €`
+              ? `${Math.ceil(el.price / dollarRate)} $`
+              : `${Math.ceil(el.price / euroRate)} €`
           }
           stops={el.stops}
         />
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
     showData: state.showData,
     data: state.data,
     currency: state.currency,
-    filter: state.filter
+    filter: state.filter,
   }
 }
 export default connect(mapStateToProps)(ResultsPage)

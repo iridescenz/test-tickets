@@ -4,7 +4,6 @@ import { IoIosAirplane } from 'react-icons/io'
 import moment from 'moment'
 import 'moment/locale/ru'
 
-
 function Ticket({
   origin,
   originName,
@@ -31,9 +30,9 @@ function Ticket({
 
   const validDateFormatter = (date) => {
     //format date to fix safari bug
-   const data = date.split('.')
-   const [day, month, year] = data;
-   return `20${year}-${month}-${day}`
+    const data = date.split('.')
+    const [day, month, year] = data
+    return `20${year}-${month}-${day}`
   }
   const dep = dateFormatter(validDateFormatter(depatureDate))
   const arr = dateFormatter(validDateFormatter(arrivalDate))
