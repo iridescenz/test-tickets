@@ -1,11 +1,14 @@
 import React from 'react'
-import data from '../tickets.json'
 import Ticket from './Ticket'
 import store from '../store'
-
+import { connect } from 'react-redux';
 
 function ResultsPage() {
-  const results = store.getState().showData.tickets.map((el) => {
+  const currentData = store.getState().showData
+  const dollarRate = 72.3
+  const euroRate = 86.3
+  const results = currentData.sort((a, b) => a.price - b.price).map((el) => {
+    const currency = store.getState().currency
     return (
       <Ticket
       key={`${el.origin_name}, ${el.departure_time}, ${el.carrier}`}
@@ -18,12 +21,18 @@ function ResultsPage() {
         arrivalDate={el.arrival_date}
         arrivalTime={el.arrival_time}
         carrier={el.carrier}
-        price={el.price}
+        price={currency ==='rub' ? `${el.price} ₽` : (currency === 'usd' ? `${(el.price / dollarRate).toFixed(2)} $` : `${(el.price / euroRate).toFixed(2)} €`) }
         stops={el.stops}
       />
     )
   })
   return <div className='results'>{results}</div>
 }
-
-export default ResultsPage
+const mapStateToProps = (state) => {
+  return {
+    showData: state.showData,
+    data: state.data,
+    currency: state.currency
+  };
+};
+export default connect(mapStateToProps)(ResultsPage)

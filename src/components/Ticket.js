@@ -4,6 +4,7 @@ import { IoIosAirplane } from 'react-icons/io'
 import moment from 'moment'
 import 'moment/locale/ru'
 
+
 function Ticket({
   origin,
   originName,

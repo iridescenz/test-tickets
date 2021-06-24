@@ -3,13 +3,28 @@ function reducers(state, action) {
     case 'FILTER_BY_STOPS':
       return {
         ...state, 
-        showData: state.data.map(el => el.stops === action.payload)
+        showData: state.data.filter(el => el.stops === +action.payload)
       };
-      case 'NO_FILTER':
+      case 'SHOW_ALL':
         return {
-          ...state.data,
-          showData: state.data
+          ...state,
+          showData:state.data
         };
+      case 'SET_CURRENCY_EURO': 
+        return {
+          ...state,
+          currency: 'eur'
+        };
+      case 'SET_CURRENCY_RUB':
+        return {
+          ...state,
+          currency: 'rub'
+      };
+      case 'SET_CURRENCY_USD': 
+        return {
+          ...state,
+          currency: 'usd'
+      };
       default:
       return state;
     }
