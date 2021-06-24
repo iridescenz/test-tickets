@@ -2,7 +2,7 @@ test task for idea platform
 
 https://tickets-test.netlify.app
 
-1. should render tickets with data sorted by price from file tickets.json
+1. should render tickets sorted by price from file tickets.json
 
 2. filter tickets by number of stops
 
