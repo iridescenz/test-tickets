@@ -67,7 +67,7 @@ html {
   color: rgb(216, 219, 219) !important;
   float: right;
   font-size: 14px;
-  margin-top: -5px;
+  margin-top: -6px;
 }
 .results {
   display: flex;
@@ -154,6 +154,7 @@ img {
   background-color: rgb(243, 247, 250);
   margin: 0 auto;
   width: 920px;
+  min-height: 100vh;
   align-items: center;
 }
 

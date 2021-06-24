@@ -5,7 +5,8 @@ import data from './tickets.json'
 const initialState = {
   data: data.tickets,
   showData: data.tickets,
-  currency: 'rub'
+  currency: 'rub',
+  filter: []
 };
 
 const store = createStore(reducers, initialState);
