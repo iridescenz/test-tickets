@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import store from '../store'
 import { connect } from 'react-redux'
 
@@ -10,10 +10,7 @@ const Checkbox = () => {
         <input
           type='checkbox'
           id='cb1'
-          onClick={() =>
-            store.dispatch({ type: 'FILTER', payload: [0, 1, 2, 3] }) &&
-            store.dispatch({ type: 'FILTER_BY_STOPS', payload: [0, 1, 2, 3] })
-          }
+          onClick={() => store.dispatch({ type: 'SHOW_ALL' })}
         />
         <label htmlFor='cb1'> Все</label>
       </div>

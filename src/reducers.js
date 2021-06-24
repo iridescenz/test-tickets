@@ -15,6 +15,11 @@ function reducers(state, action) {
         ...state,
         currency: 'usd',
       }
+      case 'SHOW_ALL':
+        return {
+          ...state,
+          showData: state.data,
+        }
     case 'FILTER':
       return {
         ...state,
