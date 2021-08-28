@@ -45,7 +45,7 @@ const Checkbox = () => {
             store.dispatch({ type: 'FILTER', payload: 2 }) &&
             store.dispatch({ type: 'FILTER_BY_STOPS', payload: 2 })
           }
-        />{' '}
+        />
         <label htmlFor='cb3'>2 пересадки</label>
       </div>
       <div>
