@@ -1,48 +1,50 @@
 import React from 'react'
 import Ticket from './Ticket'
-import store from '../store'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { showCurrency } from './helpers'
 
 function ResultsPage() {
-  const currentData = store.getState().showData
-  const dollarRate = 72.3
-  const euroRate = 86.3
-  const res = currentData.length === 0 ? store.getState().data : currentData
-  const results = res
+  const currency = useSelector((state) => state.currency)
+
+  let data = useSelector(({ view, data }) => {
+    if (view === 'all') {
+      return data
+    }
+    if (view === 'none') {
+      return data.filter((ticket) => ticket.stops === 0)
+    }
+    if (view === 'one') {
+      return data.filter((ticket) => ticket.stops === 1)
+    }
+    if (view === 'two') {
+      return data.filter((ticket) => ticket.stops === 2)
+    }
+    if (view === 'three') {
+      return data.filter((ticket) => ticket.stops === 3)
+    }
+  })
+
+  const results = data
     .sort((a, b) => a.price - b.price)
-    .map((el) => {
-      const currency = store.getState().currency
+    .map((ticket) => {
       return (
         <Ticket
-          key={`${el.origin_name}, ${el.departure_time}, ${el.carrier}`}
-          origin={el.origin}
-          originName={el.origin_name}
-          destination={el.destination}
-          destinationName={el.destination_name}
-          depatureDate={el.departure_date}
-          depatureTime={el.departure_time}
-          arrivalDate={el.arrival_date}
-          arrivalTime={el.arrival_time}
-          carrier={el.carrier}
-          price={
-            currency === 'rub'
-              ? `${el.price} ₽`
-              : currency === 'usd'
-              ? `${Math.ceil(el.price / dollarRate)} $`
-              : `${Math.ceil(el.price / euroRate)} €`
-          }
-          stops={el.stops}
+          key={`${ticket.origin_name}, ${ticket.departure_time}, ${ticket.carrier}`}
+          origin={ticket.origin}
+          originName={ticket.origin_name}
+          destination={ticket.destination}
+          destinationName={ticket.destination_name}
+          depatureDate={ticket.departure_date}
+          depatureTime={ticket.departure_time}
+          arrivalDate={ticket.arrival_date}
+          arrivalTime={ticket.arrival_time}
+          carrier={ticket.carrier}
+          price={showCurrency(currency, ticket.price)}
+          stops={ticket.stops}
         />
       )
     })
   return <div className='results'>{results}</div>
 }
-const mapStateToProps = (state) => {
-  return {
-    showData: state.showData,
-    data: state.data,
-    currency: state.currency,
-    filter: state.filter,
-  }
-}
-export default connect(mapStateToProps)(ResultsPage)
+
+export default ResultsPage

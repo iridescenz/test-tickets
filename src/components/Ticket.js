@@ -1,8 +1,7 @@
 import React from 'react'
 import Button from './Button'
 import { IoIosAirplane } from 'react-icons/io'
-import moment from 'moment'
-import 'moment/locale/ru'
+import { dateFormatter, priceFormatter, validDateFormatter } from './helpers'
 
 function Ticket({
   origin,
@@ -17,23 +16,7 @@ function Ticket({
   price,
   stops,
 }) {
-  const dateFormatter = (date) => {
-    moment.locale('ru')
-    let formattedDate = moment(date).format('ll')
-    formattedDate = formattedDate.replace(/\./gi, '')
-    const day = moment(date).format('dd')
-    return `${formattedDate}, ${day[0].toUpperCase()}${day[1]}`
-  }
 
-  const priceFormatter = (price) =>
-    price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-
-  const validDateFormatter = (date) => {
-    //format date to fix safari bug
-    const data = date.split('.')
-    const [day, month, year] = data
-    return `20${year}-${month}-${day}`
-  }
   const dep = dateFormatter(validDateFormatter(depatureDate))
   const arr = dateFormatter(validDateFormatter(arrivalDate))
 

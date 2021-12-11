@@ -1,28 +1,30 @@
 import React from 'react'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import store from '../store'
-import { connect } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { useDispatch } from 'react-redux'
+import { setEuro, setDollar, setRuble } from '../redux/reducers'
 
+const currencyValues = [
+  { id: 234, value: 'rub', action: setRuble },
+  { id: 2345, value: 'euro', action: setEuro },
+  { id: 23456, value: 'usd', action: setDollar },
+]
 
 const Currency = () => {
+  const dispatch = useDispatch()
   return (
     <div className='currency'>
-       <h3 className='page-header'>Валюта</h3>
-    <ButtonGroup size="sm">
-    <Button onClick={() => store.dispatch({type: 'SET_CURRENCY_RUB'})}>rub</Button>
-    <Button onClick={() => store.dispatch({type: 'SET_CURRENCY_USD'})}>usd</Button>
-    <Button onClick={() => store.dispatch({type: 'SET_CURRENCY_EURO'})}>eur</Button>
-  </ButtonGroup>
+      <h3 className='page-header'>Валюта</h3>
+      <ButtonGroup size='sm'>
+        {currencyValues.map((val) => (
+          <Button key={val.id} onClick={() => dispatch(val.action())}>
+            {val.value}
+          </Button>
+        ))}
+      </ButtonGroup>
     </div>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    showData: state.showData,
-    data: state.data,
-    currency: state.currency
-  };
-};
-export default connect(mapStateToProps)(Currency)
+
+export default Currency

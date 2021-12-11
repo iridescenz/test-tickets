@@ -1,6 +1,6 @@
 import React from 'react'
 import Currency from './Currency'
-import Checkbox from './Checkbox'
+import Checkbox from './Checkboxes'
 
 const Options = () => {
   return (
