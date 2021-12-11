@@ -1,15 +1,18 @@
-export const  reducers = (state, action) => {
+export const reducers = (state, action) => {
   switch (action.type) {
     case 'SET_CURRENCY':
       return {
         ...state,
         currency: action.payload,
       }
-      case 'SET_VIEW':
-        return { 
-          ...state, view: action.payload 
+    case 'SET_VIEW':
+      return {
+        ...state,
+        view: action.payload,
+        stop: action.payload !== 'all' ? (state.stop.includes(action.payload)
+          ? state.stop.filter((value) => value !== action.payload)
+          : [...state.stop, action.payload]) : [...state.stop],
       }
-      
     default:
       return state
   }
@@ -43,28 +46,28 @@ export const setAllView = () => {
   }
 }
 
-export const setOneStopView= () => {
+export const setOneStopView = () => {
   return {
     type: 'SET_VIEW',
-    payload: 'one',
+    payload: 1,
   }
 }
-export const setTwoStopsView= () => {
+export const setTwoStopsView = () => {
   return {
     type: 'SET_VIEW',
-    payload: 'two',
+    payload: 2,
   }
 }
 
-export const setThreeStopsView= () => {
+export const setThreeStopsView = () => {
   return {
     type: 'SET_VIEW',
-    payload: 'three',
+    payload: 3,
   }
 }
-export const setNoStopsView= () => {
+export const setNoStopsView = () => {
   return {
     type: 'SET_VIEW',
-    payload: 'none',
+    payload: 0,
   }
 }

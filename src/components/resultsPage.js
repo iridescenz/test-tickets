@@ -5,23 +5,14 @@ import { showCurrency } from './helpers'
 
 function ResultsPage() {
   const currency = useSelector((state) => state.currency)
+  const stop = useSelector((state) => state)
+  console.log(stop)
 
-  let data = useSelector(({ view, data }) => {
-    if (view === 'all') {
+  let data = useSelector(({ view, data, stop }) => {
+    if (view === 'all' || stop.length === 0) {
       return data
     }
-    if (view === 'none') {
-      return data.filter((ticket) => ticket.stops === 0)
-    }
-    if (view === 'one') {
-      return data.filter((ticket) => ticket.stops === 1)
-    }
-    if (view === 'two') {
-      return data.filter((ticket) => ticket.stops === 2)
-    }
-    if (view === 'three') {
-      return data.filter((ticket) => ticket.stops === 3)
-    }
+      return data.filter((ticket) => stop.includes(ticket.stops))
   })
 
   const results = data
