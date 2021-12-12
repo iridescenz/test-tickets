@@ -1,19 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-export const Checkbox = ({ id, value, reducer }) => {
+export const Checkbox = ({ id, value, setView }) => {
   const dispatch = useDispatch()
-  const [checked, setChecked] = useState(false)
+  const stops = useSelector((state) => state.stop)
+  console.log(stops, id)
   return (
     <div>
       <input
         type='checkbox'
-        checked={checked}
+        checked={stops.includes(id)}
         id={id}
-        onChange={() => setChecked(!checked)}
-        onClick={() => dispatch(reducer())}
+        onChange={() => {}}
+        onClick={() => dispatch(setView())}
       />
       <label htmlFor={id}> {value}</label>
     </div>
   )
 }
+

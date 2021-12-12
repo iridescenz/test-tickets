@@ -12,7 +12,7 @@ function ResultsPage() {
     if (view === 'all' || stop.length === 0) {
       return data
     }
-      return data.filter((ticket) => stop.includes(ticket.stops))
+      return data.filter((ticket) => stop.includes(ticket.id))
   })
 
   const results = data

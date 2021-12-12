@@ -3,12 +3,12 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useDispatch } from 'react-redux'
-import { setEuro, setDollar, setRuble } from '../redux/reducers'
+import { setCurrency } from '../redux/reducers'
 
 const currencyValues = [
-  { id: 234, value: 'rub', action: setRuble },
-  { id: 2345, value: 'euro', action: setEuro },
-  { id: 23456, value: 'usd', action: setDollar },
+  { id: 234, value: 'rub', action: setCurrency('rub') },
+  { id: 2345, value: 'euro', action: setCurrency('euro') },
+  { id: 23456, value: 'usd', action: setCurrency('usd') },
 ]
 
 const Currency = () => {
@@ -18,7 +18,7 @@ const Currency = () => {
       <h3 className='page-header'>Валюта</h3>
       <ButtonGroup size='sm'>
         {currencyValues.map((val) => (
-          <Button key={val.id} onClick={() => dispatch(val.action())}>
+          <Button key={val.id} onClick={() => dispatch(val.action)}>
             {val.value}
           </Button>
         ))}

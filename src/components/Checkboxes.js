@@ -11,7 +11,7 @@ const Checkboxes = () => {
           key={checkbx.id}
           id={checkbx.id}
           value={checkbx.value}
-          reducer={checkbx.reducer}
+          setView={checkbx.actionCreator}
         />
       ))}
     </div>

@@ -24,7 +24,7 @@ function Ticket({
   return (
     <div className='ticket' style={{ border: '1px solid grey' }}>
       <div className='left'>
-        <img src={`logos/${carrier}.png`} alt={carrier} />
+        <img src={`./logos/${carrier}.png`} alt={carrier} />
         <Button text='Купить' text2={`за ${priceFormatter(price)}`} />
       </div>
       <div className='right'>

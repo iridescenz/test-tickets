@@ -5,69 +5,38 @@ export const reducers = (state, action) => {
         ...state,
         currency: action.payload,
       }
-    case 'SET_VIEW':
+    case 'SET_VIEW': {
+      const updatedStops = (() => {
+        if (action.payload === 'cb1') {
+          return state.stop.includes('cb1') ? [] : ['cb1']
+        }
+        return state.stop.includes(action.payload)
+          ? state.stop.filter((value) => value !== action.payload)
+          : [...state.stop, action.payload]
+      })()
+
       return {
         ...state,
         view: action.payload,
-        stop: action.payload !== 'all' ? (state.stop.includes(action.payload)
-          ? state.stop.filter((value) => value !== action.payload)
-          : [...state.stop, action.payload]) : [...state.stop],
+        stop: updatedStops,
       }
+    }
     default:
       return state
   }
 }
 
-export const setEuro = () => {
+export const setCurrency = (payload) => {
   return {
     type: 'SET_CURRENCY',
-    payload: 'euro',
+    payload,
   }
 }
 
-export const setRuble = () => {
-  return {
-    type: 'SET_CURRENCY',
-    payload: 'rub',
-  }
-}
 
-export const setDollar = () => {
-  return {
-    type: 'SET_CURRENCY',
-    payload: 'usd',
-  }
-}
-
-export const setAllView = () => {
+export const setView = (payload) => {
   return {
     type: 'SET_VIEW',
-    payload: 'all',
-  }
-}
-
-export const setOneStopView = () => {
-  return {
-    type: 'SET_VIEW',
-    payload: 1,
-  }
-}
-export const setTwoStopsView = () => {
-  return {
-    type: 'SET_VIEW',
-    payload: 2,
-  }
-}
-
-export const setThreeStopsView = () => {
-  return {
-    type: 'SET_VIEW',
-    payload: 3,
-  }
-}
-export const setNoStopsView = () => {
-  return {
-    type: 'SET_VIEW',
-    payload: 0,
+    payload,
   }
 }
