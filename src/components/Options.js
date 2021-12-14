@@ -5,11 +5,10 @@ import Checkboxes from './Checkboxes'
 const Options = () => {
   return (
     <div className='options-container'>
-    <Currency />
-    <Checkboxes />
+      <Currency />
+      <Checkboxes />
     </div>
   )
 }
 
 export default Options
-

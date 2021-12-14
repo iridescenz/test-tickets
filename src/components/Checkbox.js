@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 export const Checkbox = ({ id, value, setView, stopsV }) => {
   const dispatch = useDispatch()
   const stops = useSelector((state) => state.stop)
-  console.log(stops, stopsV)
   return (
     <div>
       <input
@@ -18,4 +17,3 @@ export const Checkbox = ({ id, value, setView, stopsV }) => {
     </div>
   )
 }
-
