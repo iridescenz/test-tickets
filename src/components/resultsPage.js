@@ -2,17 +2,18 @@ import React from 'react'
 import Ticket from './Ticket'
 import { useSelector } from 'react-redux'
 import { showCurrency } from './helpers'
+import {checkbox} from './checkboxData'
 
 function ResultsPage() {
   const currency = useSelector((state) => state.currency)
-  const stop = useSelector((state) => state)
-  console.log(stop)
+  let stop = useSelector((state) => state.stop)
 
-  let data = useSelector(({ view, data, stop }) => {
-    if (view === 'all' || stop.length === 0) {
+  let data = useSelector(({ data, stop }) => {
+    if (stop.length === 0) {
       return data
     }
-      return data.filter((ticket) => stop.includes(ticket.id))
+      return data.filter(ticket => {
+        stop.includes(String(ticket.stops))})
   })
 
   const results = data

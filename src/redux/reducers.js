@@ -7,17 +7,22 @@ export const reducers = (state, action) => {
       }
     case 'SET_VIEW': {
       const updatedStops = (() => {
-        if (action.payload === 'cb1') {
-          return state.stop.includes('cb1') ? [] : ['cb1']
+        if (action.payload === 'all') {
+          return state.stop.includes('all') ? [] : ['all']
         }
-        return state.stop.includes(action.payload)
+        else if (state.stop.includes('all')) {
+          return [...state.stop.filter((value) => value !== 'all'), action.payload]
+        }
+        else  {
+            return state.stop.includes(action.payload)
           ? state.stop.filter((value) => value !== action.payload)
           : [...state.stop, action.payload]
+        }
+
       })()
 
       return {
         ...state,
-        view: action.payload,
         stop: updatedStops,
       }
     }

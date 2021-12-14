@@ -12,6 +12,7 @@ const Checkboxes = () => {
           id={checkbx.id}
           value={checkbx.value}
           setView={checkbx.actionCreator}
+          stopsV={checkbx.stopsV}
         />
       ))}
     </div>

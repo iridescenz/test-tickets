@@ -4,7 +4,6 @@ import data from '../tickets.json'
 
 const initialState = {
   data: data.tickets,
-  view: 'all',
   stop: [],
   currency: 'rub',
 }
