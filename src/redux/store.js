@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 import { reducers } from './reducers'
-import data from '../tickets.json'
+import data from '../mock/tickets.json'
 
 const initialState = {
   data: data.tickets,

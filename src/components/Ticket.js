@@ -2,6 +2,19 @@ import React from 'react'
 import Button from './Button'
 import { IoIosAirplane } from 'react-icons/io'
 import { dateFormatter, priceFormatter, validDateFormatter } from './helpers'
+import s7Logo from './logos/s7.png'
+import baLogo from './logos/ba.png'
+import skLogo from './logos/sk.png'
+import suLogo from './logos/su.png'
+import tkLogo from './logos/tk.png'
+
+const pics = {
+  BA: baLogo,
+  S7: s7Logo,
+  SU: suLogo,
+  SK: skLogo,
+  TK: tkLogo,
+}
 
 function Ticket({
   origin,
@@ -16,15 +29,13 @@ function Ticket({
   price,
   stops,
 }) {
- 
-
   const dep = dateFormatter(validDateFormatter(depatureDate))
   const arr = dateFormatter(validDateFormatter(arrivalDate))
 
   return (
     <div className='ticket' style={{ border: '1px solid grey' }}>
       <div className='left'>
-        <img src={`./logos/${carrier}.png`} alt={carrier} />
+        <img src={pics[`${carrier}`]} alt={carrier} />
         <Button text='Купить' text2={`за ${priceFormatter(price)}`} />
       </div>
       <div className='right'>
